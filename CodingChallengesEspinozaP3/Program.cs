@@ -9,7 +9,7 @@ class Challenges
         var keepLoop = true;
         while (keepLoop)
         {
-            Console.WriteLine("Welcome to my coding Challenge program plase select any of thew 7 numebers");
+            Console.WriteLine("Welcome again to my coding Challenge program plase select any of the 8 numebers");
             var progarmchoose = Console.ReadLine();
             int progarmchooseint = int.Parse(progarmchoose);
 
@@ -91,6 +91,17 @@ class Challenges
                 int number10int = int.Parse(number10);
                 Console.WriteLine(lessThanOrEqualToZero(number10int));
             }
+            if(progarmchooseint ==8)
+            {
+                Console.WriteLine("give me two number and in return i will add them up and depening that it will return false \nif over 100 and true if any are lower than 100");
+                var number11 = Console.ReadLine();
+                int number11int = int.Parse(number11);
+
+                var number12 = Console.ReadLine();
+                int number12int = int.Parse(number12);
+
+                Console.WriteLine(LessThan100(number11int, number12int));
+            }
             else
             {
                 Console.WriteLine("------This number is invaled plase select again.-------");
@@ -128,5 +139,16 @@ class Challenges
         return true;
         }
         return false;
+    }
+    public static bool LessThan100(int number11, int number12)
+    {
+        if (number11 + number12 <= 100)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
