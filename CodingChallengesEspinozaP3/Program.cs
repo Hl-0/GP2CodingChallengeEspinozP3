@@ -1,5 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using System;
+using System.Globalization;
+using System.Reflection.Metadata.Ecma335;
 using System.Security.Cryptography.X509Certificates;
 class Challenges
 {
@@ -9,7 +11,7 @@ class Challenges
         var keepLoop = true;
         while (keepLoop)
         {
-            Console.WriteLine("Welcome again to my coding Challenge program plase select any of the 8 numebers");
+            Console.WriteLine("Welcome again to my coding Challenge program plase select any of the 10 numebers");
             var progarmchoose = Console.ReadLine();
             int progarmchooseint = int.Parse(progarmchoose);
 
@@ -102,6 +104,25 @@ class Challenges
 
                 Console.WriteLine(LessThan100(number11int, number12int));
             }
+            if(progarmchooseint ==9)
+            {
+                Console.WriteLine(" give me two numbers and it they are not equal then it would be false, then if it is equal then it is true");
+                var number13 = Console.ReadLine();
+                int number13int = int.Parse(number13);
+
+                var number14 = Console.ReadLine();
+                int number14int = int.Parse(number14);
+
+                Console.WriteLine(equaltoo(number13int, number14int));
+
+            }
+            if(progarmchooseint ==10)
+            {
+                Console.WriteLine(" Give me some words and with that the word SOMETHING \nis going to be add to it in the sentence.");
+                var words = Console.ReadLine();  
+                
+                Console.WriteLine(GiveMeSomething(words));
+            }
             else
             {
                 Console.WriteLine("------This number is invaled plase select again.-------");
@@ -134,11 +155,14 @@ class Challenges
     }
     public static bool lessThanOrEqualToZero(int number10)
     {
-        if(number10 <= 0)
+        if (number10 <= 0)
         {
-        return true;
+            return true;
         }
-        return false;
+        else
+        {
+            return false;
+        }
     }
     public static bool LessThan100(int number11, int number12)
     {
@@ -150,5 +174,21 @@ class Challenges
         {
             return false;
         }
+    }
+    public static bool equaltoo(int number13, int number14)
+    {
+        if (number13 == number14)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public static string GiveMeSomething(string words)
+    {
+        var Smthn = " Something ";
+        return Smthn + words;
     }
 }
