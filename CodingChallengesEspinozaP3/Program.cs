@@ -11,7 +11,7 @@ class Challenges
         var keepLoop = true;
         while (keepLoop)
         {
-            Console.WriteLine("Welcome again to my coding Challenge program plase select any of the 10 numebers");
+            Console.WriteLine("Welcome again to my coding Challenge program plase select any of the 11 numebers");
             var progarmchoose = Console.ReadLine();
             int progarmchooseint = int.Parse(progarmchoose);
 
@@ -123,8 +123,26 @@ class Challenges
                 
                 Console.WriteLine(GiveMeSomething(words));
             }
+            if (progarmchooseint == 11)
+            {
+                Console.WriteLine("Give me the worsd either true or false and it will be revesed");
+                var trueorfalse = Console.ReadLine();
+                if (trueorfalse == "true")
+                {
+                    Console.WriteLine("To bad it is false :I");
+                }
+                else if (trueorfalse == "false")
+                {
+                    Console.WriteLine("To bad it is True :I");
+                }
+                else
+                {
+                    Console.WriteLine("Maybe you misspelled it or didn't give me the option please select again");
+                }
+            }
             else
             {
+                Console.WriteLine("Maybe you misspelled it or didn't give me the options that is given please select.");
                 Console.WriteLine("------This number is invaled plase select again.-------");
             }
         }
