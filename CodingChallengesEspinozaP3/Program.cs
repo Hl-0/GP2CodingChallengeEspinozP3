@@ -7,6 +7,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text.RegularExpressions;
 using System.Text;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using System.Collections.Concurrent;
 class Challenges
 {
 
@@ -15,7 +16,7 @@ class Challenges
         var keepLoop = true;
         while (keepLoop)
         {
-            Console.WriteLine("Welcome again to my coding Challenge program plase select any of the 20 numbers");
+            Console.WriteLine("Welcome again to my coding Challenge program plase select any of the 24 numbers");
             var progarmchoose = Console.ReadLine();
             int progarmchooseint = int.Parse(progarmchoose);
 
@@ -287,11 +288,11 @@ class Challenges
                 {
                     Console.WriteLine("month name(12)--> December");
                 }
-                
+
             }
             if (progarmchooseint == 22)
             {
-               
+
                 int[] arr1 = new int[5];
                 int max, min;
                 Console.WriteLine("Enter Array Element");
@@ -300,29 +301,52 @@ class Challenges
                     Console.Write("Element {0} - ", i);
                     arr1[i] = Convert.ToInt32(Console.ReadLine());
                 }
-                    max = arr1[0];
-                    min = arr1[0];
-                
-                    for (int i=0; i<arr1.Length;i++)
+                max = arr1[0];
+                min = arr1[0];
+
+                for (int i = 0; i < arr1.Length; i++)
+                {
+                    if (arr1[i] > max)
                     {
-                        if (arr1[i] > max)
-                        {
-                            max = arr1[i];
-                        }
-                        if(arr1[i] < min)
-                        {
-                            min = arr1[i];
-                        }
+                        max = arr1[i];
                     }
-                    Console.WriteLine(" Maximun number form an arry is {0}", max);
-                    Console.WriteLine("Minimun number from an array is {0}", min);
-                
+                    if (arr1[i] < min)
+                    {
+                        min = arr1[i];
+                    }
+                }
+                Console.WriteLine(" Maximun number form an arry is {0}", max);
+                Console.WriteLine("Minimun number from an array is {0}", min);
+
+            }
+            if (progarmchooseint == 23)
+            {
+                int[] arr = new int[] { Int32.MaxValue, 1 };
+                long sum = 0;
+                for (int i = 0; i < arr.Length; i++)
+                {
+                    sum += arr[i];
+                }
+
+
+            }
+            if (progarmchooseint == 24)
+            {
+                Console.WriteLine("Give it a function that takes a base number and will muitlply it by its self with \n the same number to the power");
+                var number29 = Console.ReadLine();
+                int number29int = int.Parse(number29);
+
+                var number30 = Console.ReadLine();
+                int number30int = int.Parse(number30);
+
+                Console.WriteLine("CalculateExponent(" + number29 + "," + number30 + ")-->" + CE(number29int, number30int));
             }
             else
             {
                 Console.WriteLine("Maybe you misspelled it or didn't give me the options that is given please select.");
                 Console.WriteLine("------This number is invaled plase select again.-------");
             }
+
         }
     }
 
@@ -435,6 +459,11 @@ class Challenges
         {
             return (number25 * 3 + number26 * 1 + number27 * 0);
         }
+        public static double CE(double number29, double number30)
+        {
+            return (Math.Pow(number29, number30));
+        }
+    
 
 
     
