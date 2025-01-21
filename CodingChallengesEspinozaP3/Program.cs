@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using System.Text;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Collections.Concurrent;
+using System.Drawing;
 class Challenges
 {
 
@@ -16,7 +17,7 @@ class Challenges
         var keepLoop = true;
         while (keepLoop)
         {
-            Console.WriteLine("Welcome again to my coding Challenge program plase select any of the 24 numbers");
+            Console.WriteLine("\nWelcome again to my coding Challenge program plase select any of the 26 numbers");
             var progarmchoose = Console.ReadLine();
             int progarmchooseint = int.Parse(progarmchoose);
 
@@ -341,6 +342,41 @@ class Challenges
 
                 Console.WriteLine("CalculateExponent(" + number29 + "," + number30 + ")-->" + CE(number29int, number30int));
             }
+            if(progarmchooseint ==25)
+            {
+                Console.WriteLine("Enter the numbers for the array, separated by spaces:");
+                string input = Console.ReadLine();
+
+                // Convert the input string into an array of integers
+                string[] inputArray = input.Split(' ');
+                int[] numbers = Array.ConvertAll(inputArray, int.Parse);
+
+                Console.WriteLine("Original array:");
+                foreach (var num in numbers)
+                {
+                    Console.Write(num + " ");
+                }
+
+                // Multiply each element by the length of the array
+                MultiplyByLength(numbers);
+
+                Console.WriteLine("\nArray after multiplicationn:");
+                foreach (var num in numbers)
+                {
+                    Console.Write("[" + num + "]");
+                }
+            }
+            if(progarmchooseint ==26)
+            {
+                Console.WriteLine("Hamming Distance give me two");
+                var firstStrand = Console.ReadLine();
+                
+
+                var SecondStrand = Console.ReadLine();
+                
+
+                Console.WriteLine("HammingDistance(" + firstStrand + "," + SecondStrand + ")-->" + Distance(firstStrand, SecondStrand));
+            }
             else
             {
                 Console.WriteLine("Maybe you misspelled it or didn't give me the options that is given please select.");
@@ -463,8 +499,23 @@ class Challenges
         {
             return (Math.Pow(number29, number30));
         }
-    
+    public static void MultiplyByLength(int[] array)
+    {
+        int length = array.Length;
+
+        for (int i = 0; i < length; i++)
+        {
+            array[i] *= length;
+        }
+    }
+    public static int Distance(string firstStrand, string secondStrand)
+    {
+        if (firstStrand.Length != secondStrand.Length) { throw new ArgumentException(); }
+
+        return firstStrand.Zip(secondStrand, (abcde, bcdef) => abcde != bcdef).Count(f => f);
+    }
 
 
-    
+
+
 }
