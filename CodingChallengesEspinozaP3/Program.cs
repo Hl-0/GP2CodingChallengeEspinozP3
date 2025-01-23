@@ -17,7 +17,7 @@ class Challenges
         var keepLoop = true;
         while (keepLoop)
         {
-            Console.WriteLine("\nWelcome again to my coding Challenge program plase select any of the 26 numbers");
+            Console.WriteLine("\nWelcome again to my coding Challenge program plase select any of the 27 numbers");
             var progarmchoose = Console.ReadLine();
             int progarmchooseint = int.Parse(progarmchoose);
 
@@ -377,6 +377,13 @@ class Challenges
 
                 Console.WriteLine("HammingDistance(" + firstStrand + "," + SecondStrand + ")-->" + Distance(firstStrand, SecondStrand));
             }
+            if(progarmchooseint ==27)
+            {
+                var number31 = Console.ReadLine();
+                var number32 = Console.ReadLine();
+
+                Console.WriteLine("HammingDistance(" + number31 + "," + number32 + ")-->" + Switch(number31, number32));
+            }
             else
             {
                 Console.WriteLine("Maybe you misspelled it or didn't give me the options that is given please select.");
@@ -514,7 +521,10 @@ class Challenges
 
         return firstStrand.Zip(secondStrand, (abcde, bcdef) => abcde != bcdef).Count(f => f);
     }
-
+    public static string Switch(string number31, string number32)
+    {
+        return number32 +" "+ number31;
+    }
 
 
 
