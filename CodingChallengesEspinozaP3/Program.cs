@@ -9,6 +9,7 @@ using System.Text;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using System.Collections.Concurrent;
 using System.Drawing;
+using System.Numerics;
 class Challenges
 {
 
@@ -17,7 +18,7 @@ class Challenges
         var keepLoop = true;
         while (keepLoop)
         {
-            Console.WriteLine("\nWelcome again to my coding Challenge program plase select any of the 27 numbers");
+            Console.WriteLine("\nWelcome again to my coding Challenge program plase select any of the 28 numbers");
             var progarmchoose = Console.ReadLine();
             int progarmchooseint = int.Parse(progarmchoose);
 
@@ -382,7 +383,33 @@ class Challenges
                 var number31 = Console.ReadLine();
                 var number32 = Console.ReadLine();
 
-                Console.WriteLine("HammingDistance(" + number31 + "," + number32 + ")-->" + Switch(number31, number32));
+                Console.WriteLine("NameShuffle(" + number31 + "," + number32 + ")-->" + Switch(number31, number32));
+            }
+            if(progarmchooseint ==28)
+            {
+                int[] arr1 = new int[2];
+                int max, min;
+                Console.WriteLine("Enter Array Element");
+                for (int i = 0; i < 2; i++)
+                {
+                    Console.Write("Element {0} - ", i);
+                    arr1[i] = Convert.ToInt32(Console.ReadLine());
+                }
+                max = arr1[0];
+                min = arr1[0];
+
+                for (int i = 0; i < arr1.Length; i++)
+                {
+                    if (arr1[i] > max)
+                    {
+                        max = arr1[i];
+                    }
+                    if (arr1[i] < min)
+                    {
+                        min = arr1[i];
+                    }
+                }
+                Console.WriteLine("SmallerNum("+ arr1[0] + "," + arr1[1] + ")----->"+ min);
             }
             else
             {
@@ -524,6 +551,24 @@ class Challenges
     public static string Switch(string number31, string number32)
     {
         return number32 +" "+ number31;
+    }
+    public static string Smallest(int n)
+    {
+
+        int good = 0;//will hold number of times we got divide with no remianders
+        int num = n;//smallest possible number is n
+        while (true)
+        {
+            good = 0;
+            for (int i = n; i >= 1; i--)
+            {
+                if (num % i == 0) good++;//meaning we got zero remainder for the divide
+                if (good == n) return num.ToString();//num of times we got zero remainders == n.
+
+            }
+            num++;
+        }
+
     }
 
 
