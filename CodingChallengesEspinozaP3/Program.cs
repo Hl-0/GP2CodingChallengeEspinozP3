@@ -18,7 +18,7 @@ class Challenges
         var keepLoop = true;
         while (keepLoop)
         {
-            Console.WriteLine("\nWelcome again to my coding Challenge program plase select any of the 28 numbers");
+            Console.WriteLine("\nWelcome again to my coding Challenge program plase select any of the 30 numbers");
             var progarmchoose = Console.ReadLine();
             int progarmchooseint = int.Parse(progarmchoose);
 
@@ -385,7 +385,7 @@ class Challenges
 
                 Console.WriteLine("NameShuffle(" + number31 + "," + number32 + ")-->" + Switch(number31, number32));
             }
-            if(progarmchooseint ==28)
+            if (progarmchooseint == 28)
             {
                 int[] arr1 = new int[2];
                 int max, min;
@@ -409,14 +409,45 @@ class Challenges
                         min = arr1[i];
                     }
                 }
-                Console.WriteLine("SmallerNum("+ arr1[0] + "," + arr1[1] + ")----->"+ min);
+
+                Console.WriteLine("SmallerNum(" + arr1[0] + "," + arr1[1] + ")----->" + min);
+            }
+           if(progarmchooseint ==29)
+            {
+                   Console.WriteLine("Please provide a number to calculate its factorial.");
+
+                    var factorialNumber = Console.ReadLine();
+                    int factorialNumberInt = int.Parse(factorialNumber);
+
+                    Console.WriteLine("The factorial of (" + factorialNumber + ")----> " + Factorial(factorialNumberInt));
+           }
+
+            if (progarmchooseint == 30)
+            {
+                int total = 0;
+                // Build a list of vowels up front:
+                var vowels = new HashSet<char> { 'a', 'e', 'i', 'o', 'u' };
+
+                Console.WriteLine("Enter a Sentence");
+                string sentence = Console.ReadLine().ToLower();
+
+                for (int i = 0; i < sentence.Length; i++)
+                {
+                    if (vowels.Contains(sentence[i]))
+                    {
+                        total++;
+                    }
+                }
+                Console.WriteLine("CountVowels("+sentence+")------->"+ total);
+
+                Console.ReadLine();
             }
             else
             {
                 Console.WriteLine("Maybe you misspelled it or didn't give me the options that is given please select.");
                 Console.WriteLine("------This number is invaled plase select again.-------");
             }
-
+           
         }
     }
 
@@ -570,7 +601,13 @@ class Challenges
         }
 
     }
-
+    public static int Factorial(int number)
+    {
+        if (number == 0)
+            return 1;  // Base case: 0! = 1
+        else
+            return number * Factorial(number - 1);  // Recursive case
+    }
 
 
 }
